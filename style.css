@@ -1,0 +1,507 @@
+/*  -------------------------------------------------
+    01. RESET & GLOBAL VARIABLES
+    ------------------------------------------------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /*  COLORS  */
+  --clr-primary: #ff7e3c;
+  --clr-primary-dark: #ff6930;
+  --clr-secondary: #ffe4d4;
+  --clr-bg: #fff9f6;
+  --clr-title: #222831;
+  --clr-text: #555b66;
+
+  /*  TYPOGRAPHY  */
+  --fs-title: 3rem;
+  --fs-subtitle: 1.125rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-normal: 1rem;
+
+  --radius: 0.75rem;
+  --shadow: 0 12px 24px rgba(0,0,0,.05);
+  --transition: all .3s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: var(--fs-normal);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+}
+
+/*  -------------------------------------------------
+    02. REUSABLE CLASSES
+    ------------------------------------------------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.section {
+  padding: 5rem 0 3.5rem;
+}
+
+.section__title {
+  font-size: var(--fs-h2);
+  color: var(--clr-title);
+  margin-bottom: 2rem;
+}
+
+.center { text-align: center; }
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.btn,
+.btn-small {
+  display: inline-block;
+  background: var(--clr-primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.9rem 2.2rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-small { padding: 0.55rem 1.6rem; font-size: .875rem; }
+
+.btn:hover, .btn-small:hover {
+  background: var(--clr-primary-dark);
+  transform: translateY(-3px);
+}
+
+/*  -------------------------------------------------
+    03. NAVIGATION
+    ------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+.nav {
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--clr-title);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.logo span     { color: var(--clr-primary); }
+.logo i        { color: var(--clr-primary); }
+
+.nav__menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav__link {
+  position: relative;
+  color: var(--clr-text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 2px;
+  background: var(--clr-primary);
+  transition: width .3s;
+}
+
+.nav__link:hover,
+.nav__link.active { color: var(--clr-primary); }
+
+.nav__link:hover::after,
+.nav__link.active::after { width: 100%; }
+
+.nav__btn {
+  background: var(--clr-primary-dark);
+  color: #fff;
+  padding: .7rem 1.8rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav__checkbox { display: none; }     /*  hidden checkbox for hamburger */
+
+.nav__toggle {
+  display: none;
+  width: 2rem;
+  height: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav__toggle span,
+.nav__toggle span::before,
+.nav__toggle span::after {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--clr-title);
+  transition: var(--transition);
+}
+
+.nav__toggle span {
+  top: 50%; transform: translateY(-50%);
+}
+
+.nav__toggle span::before { content: ''; top: -.6rem; }
+.nav__toggle span::after  { content: ''; top:  .6rem; }
+
+/*  hamburger animation when checked */
+.nav__checkbox:checked + .nav__toggle span {
+  background: transparent;
+}
+.nav__checkbox:checked + .nav__toggle span::before {
+  top: 0; transform: rotate(45deg);
+}
+.nav__checkbox:checked + .nav__toggle span::after {
+  top: 0; transform: rotate(-45deg);
+}
+.nav__checkbox:checked ~ .nav__menu {
+  right: 0;
+}
+
+/*  -------------------------------------------------
+    04. HERO / HOME
+    ------------------------------------------------- */
+.home {
+  min-height: calc(100vh - 4.5rem);
+  display: flex;
+  align-items: center;
+}
+
+.home__container {
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  align-items: center;
+}
+
+.home__title {
+  font-size: var(--fs-title);
+  color: var(--clr-title);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.home__subtitle {
+  font-size: var(--fs-subtitle);
+  margin-bottom: 2rem;
+  color: var(--clr-text);
+}
+
+.home__img img {
+  width: 100%;
+  max-width: 450px;
+}
+
+/*  decorative svg paws  */
+.decor {
+  position: absolute;
+  opacity: 0.15;
+}
+.decor--1 { left: 3%; top: 12%;  width: 110px; }
+.decor--2 { right: 5%; bottom: 8%; width: 140px; }
+
+/*  -------------------------------------------------
+    05. ABOUT
+    ------------------------------------------------- */
+.about__container {
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  align-items: center;
+}
+
+.about__img img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.about__list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.about__list li {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .75rem;
+  color: var(--clr-text);
+}
+
+.about__list i { color: var(--clr-primary); }
+
+/*  -------------------------------------------------
+    06. REQUIREMENTS
+    ------------------------------------------------- */
+.requirements__container {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.requirements__item {
+  padding: 2.5rem 1.5rem;
+  background: #fff;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.requirements__item:hover {
+  transform: translateY(-6px);
+}
+
+.requirement__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--clr-primary);
+}
+
+.requirements__item h3 {
+  font-size: var(--fs-h3);
+  color: var(--clr-title);
+  margin-bottom: .5rem;
+}
+
+/*  -------------------------------------------------
+    07. PET CARDS & FILTERS
+    ------------------------------------------------- */
+.pets__filters {
+  margin-bottom: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  border: none;
+  background: #fff;
+  padding: .55rem 1.6rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--clr-title);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.filter-btn:hover { background: var(--clr-secondary); }
+.filter-btn.active { background: var(--clr-primary); color: #fff; }
+
+.pets__container {
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.pet__card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.pet__card:hover {
+  transform: translateY(-6px);
+}
+
+.pet__img img {
+  width: 100%;
+  display: block;
+}
+
+.pet__content {
+  padding: 1.5rem;
+}
+
+.pet__content h3 {
+  font-size: var(--fs-h3);
+  color: var(--clr-title);
+}
+
+.pet__meta {
+  display: block;
+  font-size: .875rem;
+  margin: .4rem 0;
+  color: var(--clr-primary-dark);
+  font-weight: 600;
+}
+
+.pet__breed {
+  font-size: .875rem;
+  margin-bottom: 1rem;
+  color: var(--clr-text);
+}
+
+/*  -------------------------------------------------
+    08. TESTIMONIALS
+    ------------------------------------------------- */
+.testimonials__container {
+  display: grid;
+  gap: 2rem;
+}
+
+.testimonial {
+  background: #fff;
+  padding: 2rem 1.75rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.testimonial__quote {
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  color: var(--clr-title);
+}
+
+.testimonial__author {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.testimonial__author img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.testimonial__author span {
+  font-weight: 600;
+  color: var(--clr-title);
+}
+
+/*  -------------------------------------------------
+    09. FOOTER
+    ------------------------------------------------- */
+.footer {
+  background: #fff;
+  padding-top: 3.5rem;
+  margin-top: 4rem;
+  border-top: 1px solid #eee;
+}
+
+.footer__container {
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin-bottom: 2.5rem;
+}
+
+.footer__brand p {
+  margin-top: .6rem;
+  color: var(--clr-text);
+  font-size: .95rem;
+}
+
+.footer__links h3,
+.footer__contact h3 {
+  font-size: var(--fs-h3);
+  margin-bottom: .9rem;
+  color: var(--clr-title);
+}
+
+.footer__links ul,
+.footer__contact ul { list-style: none; }
+
+.footer__links li,
+.footer__contact li {
+  margin-bottom: .65rem;
+  font-size: .95rem;
+}
+
+.footer__links a {
+  color: var(--clr-text);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer__links a:hover { color: var(--clr-primary); }
+
+.footer__contact i {
+  margin-right: .4rem;
+  color: var(--clr-primary);
+}
+
+.footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.footer__social a {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--clr-secondary);
+  color: var(--clr-primary-dark);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.footer__social a:hover {
+  background: var(--clr-primary);
+  color: #fff;
+}
+
+.footer__copy {
+  font-size: .9rem;
+  padding-bottom: 2rem;
+  color: var(--clr-text);
+}
+
+/*  -------------------------------------------------
+    10. MEDIA QUERIES
+    ------------------------------------------------- */
+@media (max-width: 992px) {
+  .home__title { font-size: 2.4rem; }
+  .section { padding: 4rem 0 3rem; }
+}
+
+/*  —— Mobile nav & layout —— */
+@media (max-width: 768px) {
+  .nav__toggle { display: block; }
+
+  .nav__menu {
+    position: fixed;
+    top: 4.5rem;
+    right: -100%;
+    width: 260px;
+    height: calc(100% - 4.5rem);
+    backgrou
