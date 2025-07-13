@@ -1,6 +1,4 @@
-/*  -------------------------------------------------
-    01. RESET & GLOBAL VARIABLES
-    ------------------------------------------------- */
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -8,7 +6,7 @@
 }
 
 :root {
-  /*  COLORS  */
+  
   --clr-primary: #ff7e3c;
   --clr-primary-dark: #ff6930;
   --clr-secondary: #ffe4d4;
@@ -16,7 +14,7 @@
   --clr-title: #222831;
   --clr-text: #555b66;
 
-  /*  TYPOGRAPHY  */
+  
   --fs-title: 3rem;
   --fs-subtitle: 1.125rem;
   --fs-h2: 2.25rem;
@@ -40,9 +38,7 @@ body {
   line-height: 1.6;
 }
 
-/*  -------------------------------------------------
-    02. REUSABLE CLASSES
-    ------------------------------------------------- */
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -85,9 +81,7 @@ body {
   transform: translateY(-3px);
 }
 
-/*  -------------------------------------------------
-    03. NAVIGATION
-    ------------------------------------------------- */
+
 .header {
   position: sticky;
   top: 0;
@@ -155,7 +149,7 @@ body {
   font-weight: 600;
 }
 
-.nav__checkbox { display: none; }     /*  hidden checkbox for hamburger */
+.nav__checkbox { display: none; }     
 
 .nav__toggle {
   display: none;
@@ -182,7 +176,7 @@ body {
 .nav__toggle span::before { content: ''; top: -.6rem; }
 .nav__toggle span::after  { content: ''; top:  .6rem; }
 
-/*  hamburger animation when checked */
+
 .nav__checkbox:checked + .nav__toggle span {
   background: transparent;
 }
@@ -196,9 +190,7 @@ body {
   right: 0;
 }
 
-/*  -------------------------------------------------
-    04. HERO / HOME
-    ------------------------------------------------- */
+
 .home {
   min-height: calc(100vh - 4.5rem);
   display: flex;
@@ -228,7 +220,7 @@ body {
   max-width: 450px;
 }
 
-/*  decorative svg paws  */
+
 .decor {
   position: absolute;
   opacity: 0.15;
@@ -236,9 +228,7 @@ body {
 .decor--1 { left: 3%; top: 12%;  width: 110px; }
 .decor--2 { right: 5%; bottom: 8%; width: 140px; }
 
-/*  -------------------------------------------------
-    05. ABOUT
-    ------------------------------------------------- */
+
 .about__container {
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   align-items: center;
@@ -265,9 +255,7 @@ body {
 
 .about__list i { color: var(--clr-primary); }
 
-/*  -------------------------------------------------
-    06. REQUIREMENTS
-    ------------------------------------------------- */
+
 .requirements__container {
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
 }
@@ -297,9 +285,7 @@ body {
   margin-bottom: .5rem;
 }
 
-/*  -------------------------------------------------
-    07. PET CARDS & FILTERS
-    ------------------------------------------------- */
+
 .pets__filters {
   margin-bottom: 2.5rem;
   display: flex;
@@ -367,9 +353,7 @@ body {
   color: var(--clr-text);
 }
 
-/*  -------------------------------------------------
-    08. TESTIMONIALS
-    ------------------------------------------------- */
+
 .testimonials__container {
   display: grid;
   gap: 2rem;
@@ -407,9 +391,7 @@ body {
   color: var(--clr-title);
 }
 
-/*  -------------------------------------------------
-    09. FOOTER
-    ------------------------------------------------- */
+
 .footer {
   background: #fff;
   padding-top: 3.5rem;
@@ -486,15 +468,13 @@ body {
   color: var(--clr-text);
 }
 
-/*  -------------------------------------------------
-    10. MEDIA QUERIES
-    ------------------------------------------------- */
+
 @media (max-width: 992px) {
   .home__title { font-size: 2.4rem; }
   .section { padding: 4rem 0 3rem; }
 }
 
-/*  —— Mobile nav & layout —— */
+
 @media (max-width: 768px) {
   .nav__toggle { display: block; }
 
