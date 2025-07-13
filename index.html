@@ -7,7 +7,7 @@
 
   <title>Pet Adoption</title>
 
-  <!-- ‑‑‑‑ Google Fonts & FontAwesome ‑‑‑‑ -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         integrity="sha512-xwTRFJcSOfpbl2Z4nK9Byw0kEyIjRvXY5w9l3KOcy0zFJAlDhnhgfNnGAQ9ux7SFTDrpF1IHnqPj41YIVxY4fg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- main stylesheet -->
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,7 +40,7 @@
     </nav>
   </header>
 
-  <!-- ======== Hero ======== -->
+  
   <section class="home section" id="home">
     <div class="home__container container grid">
       <div class="home__data">
@@ -57,12 +57,12 @@
       </div>
     </div>
 
-    <!-- decorative paws -->
+    
     <img src="images/paw‑1.svg" class="decor decor--1" alt="">
     <img src="images/paw‑2.svg" class="decor decor--2" alt="">
   </section>
 
-  <!-- ======== About ======== -->
+  
   <section class="about section" id="about">
     <div class="about__container container grid">
       <div class="about__img">
@@ -86,7 +86,7 @@
     </div>
   </section>
 
-  <!-- ======== Requirements ======== -->
+ 
   <section class="requirements section" id="requirements">
     <h2 class="section__title center">Adoption&nbsp;Requirements</h2>
 
@@ -117,7 +117,7 @@
     </div>
   </section>
 
-  <!-- ======== Pets ======== -->
+  
   <section class="pets section" id="pets">
     <h2 class="section__title center">Adoptable&nbsp;Pets</h2>
 
@@ -129,7 +129,7 @@
     </div>
 
     <div class="pets__container container grid">
-      <!-- card 1 -->
+      
       <article class="pet__card dog">
         <div class="pet__img"><img src="images/dog‑1.jpg" alt="Bella"></div>
         <div class="pet__content">
@@ -139,7 +139,7 @@
         </div>
       </article>
 
-      <!-- card 2 -->
+      
       <article class="pet__card cat">
         <div class="pet__img"><img src="images/cat‑1.jpg" alt="Milo"></div>
         <div class="pet__content">
@@ -149,7 +149,7 @@
         </div>
       </article>
 
-      <!-- card 3 -->
+      
       <article class="pet__card dog">
         <div class="pet__img"><img src="images/dog‑2.jpg" alt="Rocky"></div>
         <div class="pet__content">
@@ -159,7 +159,7 @@
         </div>
       </article>
 
-      <!-- card 4 -->
+     
       <article class="pet__card other">
         <div class="pet__img"><img src="images/rabbit‑1.jpg" alt="Luna"></div>
         <div class="pet__content">
@@ -171,7 +171,7 @@
     </div>
   </section>
 
-  <!-- ======== Testimonials ======== -->
+ 
   <section class="testimonials section" id="testimonials">
     <h2 class="section__title center">Happy&nbsp;Tails</h2>
 
@@ -200,7 +200,7 @@
     </div>
   </section>
 
-  <!-- ======== Footer ======== -->
+ 
   <footer class="footer" id="contact">
     <div class="footer__container container grid">
       <div class="footer__brand">
@@ -241,17 +241,17 @@
   </footer>
 
 
-  <!-- ======== Scripts ======== -->
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
           integrity="sha512-8q1FLX6MRBi2DHaApNjCG+U4ZIjc6g2uyuFdh6mrhE+UO5HPoBqBUyfV3xQAtPMlYp04CX9zW9F5C2a3jcmT4w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
 
   <script>
-    /* === dynamic year === */
+    
     document.querySelector('#year').textContent = new Date().getFullYear();
 
-    /* === pets filter === */
+    
     const filterBtns = document.querySelectorAll('.filter‑btn');
     const petCards   = document.querySelectorAll('.pet__card');
 
@@ -266,13 +266,13 @@
       });
     });
 
-    /* === close mobile nav on link click === */
+    
     const navCheck = document.getElementById('nav-toggle');
     document.querySelectorAll('.nav__link').forEach(a =>
       a.addEventListener('click', () => (navCheck.checked = false))
     );
 
-    /* === simple GSAP intro === */
+    
     gsap.from('.home__title',    {opacity:0, y:-40, duration:1});
     gsap.from('.home__subtitle', {opacity:0, y: 40, duration:1, delay:0.3});
     gsap.from('.btn',            {opacity:0, y: 20, duration:1, delay:0.6});
