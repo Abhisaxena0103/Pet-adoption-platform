@@ -1,12 +1,6 @@
-/* -------------------------------------------------
-   1.  DYNAMIC YEAR IN FOOTER
-------------------------------------------------- */
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
-
-/* -------------------------------------------------
-   2.  FILTER ADOPTABLE PET CARDS
-------------------------------------------------- */
 const filterBtns = document.querySelectorAll('.filter-btn'),
       petCards  = document.querySelectorAll('.pet__card');
 
@@ -17,7 +11,7 @@ filterBtns.forEach(btn => {
     btn.classList.add('active');
 
     /* show / hide cards */
-    const category = btn.dataset.filter;           // "all", "dog", "cat", "other"
+    const category = btn.dataset.filter;           
     petCards.forEach(card => {
       card.style.display =
         category === 'all' || card.classList.contains(category)
